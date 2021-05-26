@@ -1,0 +1,28 @@
+.container {
+  position: relative;
+  width: 100vw;
+}
+
+.searchContainer {
+  padding: 15px;
+  background-color: #eeeeee;
+  width: 100%;
+  max-width: 800px;
+  height: 200px;
+  margin: 0 auto;
+}
+
+.infoContainer {
+  padding: 15px;
+  background-color: #ffffff;
+  border: 2px solid #e7e7e7;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.mapContainer,
+.addressContainer {
+  width: 100%;
+}
