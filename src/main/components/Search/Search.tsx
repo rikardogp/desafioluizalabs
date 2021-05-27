@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Search.module.css'
 
-export default function Search() {
+export default function Search(): JSX.Element {
     return (
         <div>
             <p className={styles.txtSearch}>Consultar</p>
@@ -19,7 +19,7 @@ export default function Search() {
                 <div>
                     <label>
                         CEP
-                        <input type="text" name="cep" />
+                        <input id="cep" type="text" name="cep" />
                     </label>
                     <input type="submit" value="Buscar" />
                 </div>
