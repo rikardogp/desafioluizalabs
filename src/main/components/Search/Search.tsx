@@ -17,11 +17,20 @@ export default function Search(): JSX.Element {
                 }}
             >
                 <div>
-                    <label>
+                    <label htmlFor="cep">
                         CEP
-                        <input id="cep" type="text" name="cep" />
+                        <input
+                            className={styles.inputCep}
+                            id="cep"
+                            type="text"
+                            name="cep"
+                        />
                     </label>
-                    <input type="submit" value="Buscar" />
+                    <input
+                        className={styles.btn}
+                        type="submit"
+                        value="Buscar"
+                    />
                 </div>
             </form>
         </div>
