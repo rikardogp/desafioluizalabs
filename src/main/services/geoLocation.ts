@@ -1,4 +1,4 @@
-const geoLocation = (query: string): any => {
+const geoLocation = (query: string): Promise<Response> => {
     return fetch(
         `${
             process.env.REACT_APP_URL_GEOLOCATION + query
