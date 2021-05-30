@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styles from './Address.module.css'
-
-import searchAddress from '../../services/address'
 
 interface IAddress {
     cep: string
@@ -16,24 +14,10 @@ interface IAddress {
     siafi: string
 }
 interface IProp {
-    cep: any
+    address: IAddress | null
 }
 
-export default function Address(prop: IProp): JSX.Element {
-    const url = process.env.REACT_APP_URL_CEP
-        ? process.env.REACT_APP_URL_CEP
-        : ''
-    const { cep } = prop
-    const [address, setAddress] = useState<IAddress>()
-
-    useEffect(() => {
-        ;(async () => {
-            const response = await searchAddress(url, cep)
-            const data = await response.json()
-            setAddress(data)
-        })()
-    }, [cep, url])
-
+export default function Address({ address }: IProp): JSX.Element {
     return (
         <div className={styles.container}>
             <p className={styles.road}>{address?.logradouro}</p>

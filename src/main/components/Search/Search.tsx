@@ -1,22 +1,23 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback } from 'react'
 import styles from './Search.module.css'
 
 interface IProp {
-    cep: any
+    onChangeCep: any
+    onSubmit: any
+    cep: string
 }
 
-export default function Search(props: IProp): JSX.Element {
-    const [cep, setCep] = useState('')
+export default function Search({
+    onChangeCep,
+    onSubmit,
+    cep,
+}: IProp): JSX.Element {
     const handleSubmit = useCallback(
         (e: React.SyntheticEvent): void => {
             e.preventDefault()
-            const target = e.target as typeof e.target & {
-                cep: { value: string }
-            }
-            setCep(target.cep.value)
-            props.cep(target.cep.value)
+            onSubmit()
         },
-        [props]
+        [onSubmit]
     )
     return (
         <div>
@@ -30,7 +31,7 @@ export default function Search(props: IProp): JSX.Element {
                             id="cep"
                             type="text"
                             name="cep"
-                            onChange={(e) => setCep(e.target.value)}
+                            onChange={(e) => onChangeCep(e.target.value)}
                             value={cep}
                         />
                     </label>
