@@ -15,12 +15,15 @@ interface IAddress {
     ddd: string
     siafi: string
 }
+interface IProp {
+    cep: any
+}
 
-export default function Address(): JSX.Element {
+export default function Address(prop: IProp): JSX.Element {
     const url = process.env.REACT_APP_URL_CEP
         ? process.env.REACT_APP_URL_CEP
         : ''
-    const cep = '65907150'
+    const { cep } = prop
     const [address, setAddress] = useState<IAddress>()
 
     useEffect(() => {
@@ -29,7 +32,7 @@ export default function Address(): JSX.Element {
             const data = await response.json()
             setAddress(data)
         })()
-    }, [url])
+    }, [cep, url])
 
     return (
         <div className={styles.container}>

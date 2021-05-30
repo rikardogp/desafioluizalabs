@@ -1,15 +1,23 @@
 import React, { useCallback, useState } from 'react'
 import styles from './Search.module.css'
 
-export default function Search(): JSX.Element {
+interface IProp {
+    cep: any
+}
+
+export default function Search(props: IProp): JSX.Element {
     const [cep, setCep] = useState('')
-    const handleSubmit = useCallback((e: React.SyntheticEvent): void => {
-        e.preventDefault()
-        const target = e.target as typeof e.target & {
-            cep: { value: string }
-        }
-        setCep(target.cep.value)
-    }, [])
+    const handleSubmit = useCallback(
+        (e: React.SyntheticEvent): void => {
+            e.preventDefault()
+            const target = e.target as typeof e.target & {
+                cep: { value: string }
+            }
+            setCep(target.cep.value)
+            props.cep(target.cep.value)
+        },
+        [props]
+    )
     return (
         <div>
             <p className={styles.txtSearch}>Consultar</p>
