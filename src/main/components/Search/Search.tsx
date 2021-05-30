@@ -20,19 +20,17 @@ export default function Search({
             <p className={styles.txtSearch}>Consultar</p>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="cep">
-                        CEP
-                        <InputMask
-                            className={styles.inputCep}
-                            id="cep"
-                            type="text"
-                            name="cep"
-                            onChange={(e) => onChangeCep(e.target.value)}
-                            value={cep}
-                            mask="99999-999"
-                        />
-                    </label>
-
+                    CEP
+                    <InputMask
+                        className={styles.inputCep}
+                        id="cep"
+                        type="text"
+                        name="cep"
+                        onChange={(e) => onChangeCep(e.target.value)}
+                        value={cep}
+                        mask="99999-999"
+                        required
+                    />
                     <input
                         className={styles.btn}
                         type="submit"

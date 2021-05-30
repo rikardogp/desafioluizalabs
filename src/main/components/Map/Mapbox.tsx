@@ -17,7 +17,8 @@ export default function Mapbox({ address }: IPropMapbox): JSX.Element {
     const mapRef = useRef<mapboxgl.Map | null>(null)
 
     useEffect(() => {
-        if (!address) {
+        if (!address || address === 'undefined undefined') {
+            marker.remove()
             return
         }
         ;(async () => {

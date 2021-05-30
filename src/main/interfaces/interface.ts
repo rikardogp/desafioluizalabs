@@ -9,6 +9,7 @@ export interface IAddress {
     gia: string
     ddd: string
     siafi: string
+    erro?: string
 }
 
 export interface IPropAddress {
