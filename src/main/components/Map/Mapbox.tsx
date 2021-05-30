@@ -53,6 +53,22 @@ export default function Mapbox(prop: IProp): JSX.Element {
             const response = await geoLocation(query)
             const data = await response.json()
             setGeolocation(data.features[0].center)
+
+            if (mapRef.current !== null) {
+                mapRef.current.flyTo({
+                    center: [
+                        data.features[0].center[0],
+                        data.features[0].center[1],
+                    ],
+                    essential: true,
+                })
+                new mapboxgl.Marker()
+                    .setLngLat([
+                        data.features[0].center[0],
+                        data.features[0].center[1],
+                    ])
+                    .addTo(mapRef.current)
+            }
         })()
     }, [geolocation, query])
 
@@ -73,10 +89,6 @@ export default function Mapbox(prop: IProp): JSX.Element {
                     setinitialized(true)
                 }
             })
-
-            new mapboxgl.Marker()
-                .setLngLat([-47.477, -5.5255])
-                .addTo(mapRef.current)
         }
 
         return () => {
