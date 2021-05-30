@@ -26,6 +26,7 @@ export default function Search({
                         id="cep"
                         type="text"
                         name="cep"
+                        autoComplete="text"
                         onChange={(e) => onChangeCep(e.target.value)}
                         value={cep}
                         mask="99999-999"
