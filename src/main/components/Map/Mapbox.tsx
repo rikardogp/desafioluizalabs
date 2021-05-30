@@ -44,7 +44,7 @@ export default function Mapbox(): JSX.Element {
 
     return (
         <div className={styles.container} ref={containerRef}>
-            Mapa
+            Mapa {initialized}
         </div>
     )
 }

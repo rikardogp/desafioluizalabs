@@ -1,7 +1,5 @@
-import axios from 'axios'
+const searchAddress = (url: string, cep: string): any => {
+    return fetch(`${url + cep}/json/`)
+}
 
-const api = axios.create({
-    baseURL: 'https://viacep.com.br/ws/',
-})
-
-export default api
+export default searchAddress

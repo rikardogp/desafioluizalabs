@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from './Address.module.css'
 
-import api from '../../services/address'
+import searchAddress from '../../services/address'
 
 interface IAddress {
     cep: string
@@ -17,18 +17,19 @@ interface IAddress {
 }
 
 export default function Address(): JSX.Element {
+    const url = process.env.REACT_APP_URL_CEP
+        ? process.env.REACT_APP_URL_CEP
+        : ''
     const cep = '65907150'
     const [address, setAddress] = useState<IAddress>()
 
     useEffect(() => {
-        api.get(`${cep}/json/`)
-            .then((response) => {
-                setAddress(response.data)
-            })
-            .catch((err) => {
-                console.error(`ops! ocorreu um erro${err}`)
-            })
-    }, [])
+        ;(async () => {
+            const response = await searchAddress(url, cep)
+            const data = await response.json()
+            setAddress(data)
+        })()
+    }, [url])
 
     return (
         <div className={styles.container}>
