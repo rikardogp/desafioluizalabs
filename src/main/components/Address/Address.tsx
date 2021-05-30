@@ -1,23 +1,8 @@
 import React from 'react'
+import { IPropAddress } from '../../interfaces/interface'
 import styles from './Address.module.css'
 
-interface IAddress {
-    cep: string
-    logradouro: string
-    complemento: string
-    bairro: string
-    localidade: string
-    uf: string
-    ibge: string
-    gia: string
-    ddd: string
-    siafi: string
-}
-interface IProp {
-    address: IAddress | null
-}
-
-export default function Address({ address }: IProp): JSX.Element {
+export default function Address({ address }: IPropAddress): JSX.Element {
     return (
         <div className={styles.container}>
             <p className={styles.road}>{address?.logradouro}</p>

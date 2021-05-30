@@ -1,17 +1,13 @@
 import React, { useCallback } from 'react'
+import InputMask from 'react-input-mask'
+import { IPropSearch } from '../../interfaces/interface'
 import styles from './Search.module.css'
-
-interface IProp {
-    onChangeCep: any
-    onSubmit: any
-    cep: string
-}
 
 export default function Search({
     onChangeCep,
     onSubmit,
     cep,
-}: IProp): JSX.Element {
+}: IPropSearch): JSX.Element {
     const handleSubmit = useCallback(
         (e: React.SyntheticEvent): void => {
             e.preventDefault()
@@ -26,15 +22,17 @@ export default function Search({
                 <div>
                     <label htmlFor="cep">
                         CEP
-                        <input
+                        <InputMask
                             className={styles.inputCep}
                             id="cep"
                             type="text"
                             name="cep"
                             onChange={(e) => onChangeCep(e.target.value)}
                             value={cep}
+                            mask="99999-999"
                         />
                     </label>
+
                     <input
                         className={styles.btn}
                         type="submit"

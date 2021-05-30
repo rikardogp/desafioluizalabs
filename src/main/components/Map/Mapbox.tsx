@@ -3,15 +3,14 @@ import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import styles from './Mapbox.module.css'
 import geoLocation from '../../services/geoLocation'
+import { IPropMapbox } from '../../interfaces/interface'
 
-interface IProp {
-    address: string | null
-}
 mapboxgl.accessToken = process.env?.REACT_APP_MAPBOX_API_KEY ?? ''
 
-const centerLocation: mapboxgl.LngLatLike = [-47.477, -5.5255]
+const centerLocation: mapboxgl.LngLatLike = [-46.6388, -23.5489]
+const marker = new mapboxgl.Marker()
 
-export default function Mapbox({ address }: IProp): JSX.Element {
+export default function Mapbox({ address }: IPropMapbox): JSX.Element {
     const [initialized, setInitialized] = useState(false)
 
     const containerRef = useRef<HTMLDivElement>(null)
@@ -31,11 +30,10 @@ export default function Mapbox({ address }: IProp): JSX.Element {
                         data.features[0].center[0],
                         data.features[0].center[1],
                     ],
-                    essential: true,
-                    zoom: 13,
-                    speed: 0.2,
+                    zoom: 14,
+                    maxDuration: 7000,
                 })
-                new mapboxgl.Marker()
+                marker
                     .setLngLat([
                         data.features[0].center[0],
                         data.features[0].center[1],
@@ -54,7 +52,7 @@ export default function Mapbox({ address }: IProp): JSX.Element {
                 container: containerRef.current,
                 style: 'mapbox://styles/mapbox/streets-v11',
                 center: centerLocation,
-                zoom: 13,
+                zoom: 14,
             })
 
             mapRef.current.on('load', () => {

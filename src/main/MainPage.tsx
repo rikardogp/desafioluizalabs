@@ -4,19 +4,7 @@ import Mapbox from './components/Map/Mapbox'
 import Address from './components/Address/Address'
 import Search from './components/Search/Search'
 import searchAddress from './services/address'
-
-interface IAddress {
-    cep: string
-    logradouro: string
-    complemento: string
-    bairro: string
-    localidade: string
-    uf: string
-    ibge: string
-    gia: string
-    ddd: string
-    siafi: string
-}
+import { IAddress } from './interfaces/interface'
 
 export default function MainPage(): JSX.Element {
     const [cep, setCep] = useState<string>('')
