@@ -10,9 +10,9 @@ export default function MainPage(): JSX.Element {
     const [cep, setCep] = useState<string>('')
     const [address, setAddress] = useState<IAddress | null>(null)
     const url = process.env?.REACT_APP_URL_CEP ?? ''
-    function onChangeCep(cepAddress: string): void {
+    const onChangeCep = useCallback((cepAddress: string): void => {
         setCep(cepAddress)
-    }
+    }, [])
     const handleSubmit = useCallback(async () => {
         const response = await searchAddress(url, cep)
         const data = await response.json()
