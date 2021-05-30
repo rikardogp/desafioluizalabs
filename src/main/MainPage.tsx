@@ -19,7 +19,7 @@ export default function MainPage(): JSX.Element {
                     <Address cep={cep} />
                 </div>
                 <div className={styles.mapContainer}>
-                    <Mapbox />
+                    <Mapbox cep={cep} />
                 </div>
             </div>
         </div>
