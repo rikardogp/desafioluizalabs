@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm install && npm run build",
+    "build": "react-scripts build",
     "test": "jest",
     "test-coverage": "jest --coverage",
     "eject": "react-scripts eject"
