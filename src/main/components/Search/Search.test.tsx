@@ -7,7 +7,7 @@ const handleSubmit = jest.fn()
 const cep = '65907-150'
 
 describe('<Search />', () => {
-    it('MainPage starts', () => {
+    it('Search starts', () => {
         const app = shallow(
             <Search
                 onChangeCep={onChangeCep}
@@ -18,7 +18,7 @@ describe('<Search />', () => {
         expect(onChangeCep).not.toBeCalled()
     })
 
-    it('MainPage input onChange', () => {
+    it('Search input onChange', () => {
         const app = shallow(
             <Search
                 onChangeCep={onChangeCep}
@@ -37,7 +37,7 @@ describe('<Search />', () => {
         expect(onChangeCep).toBeCalled()
     })
 
-    it('MainPage form submit', () => {
+    it('Search form submit', () => {
         const app = shallow(
             <Search
                 onChangeCep={onChangeCep}
