@@ -16,11 +16,11 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.7",
     "@types/react-input-mask": "^3.0.0",
+    "@types/react-router-dom": "^5.1.7",
     "enzyme": "^3.11.0",
-    "enzyme-to-json": "^3.6.2",
     "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
     "express": "^4.16.4",
     "mapbox-gl": "^2.2.0",
     "normalize.css": "^8.0.1",
@@ -28,6 +28,7 @@
     "react-dom": "^17.0.2",
     "react-input-mask": "^3.0.0-alpha.2",
     "react-scripts": "4.0.3",
+    "serve": "^11.3.2",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1"
   },
@@ -83,7 +84,7 @@
     "setupFiles": [
       "<rootDir>/test/setupTests.ts"
     ],
-    "moduleNameMapper":{
+    "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "<rootDir>/test/styleMock.js"
     }
   }
