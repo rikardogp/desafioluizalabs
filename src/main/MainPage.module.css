@@ -8,8 +8,9 @@
   background-color: #eeeeee;
   width: 100%;
   max-width: 800px;
-  height: 200px;
+  height: 135px;
   margin: 0 auto;
+  margin-top: 5px;
 }
 
 .infoContainer {
