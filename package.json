@@ -33,7 +33,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cd react-ui/ && npm install && npm run build",
+    "build": "npm install && npm run build",
     "test": "jest",
     "test-coverage": "jest --coverage",
     "eject": "react-scripts eject"
