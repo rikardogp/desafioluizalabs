@@ -1,31 +1,37 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import InputMask from 'react-input-mask'
+import { IPropSearch } from '../../interfaces/interface'
 import styles from './Search.module.css'
 
-export default function Search(): JSX.Element {
+export default function Search({
+    onChangeCep,
+    onSubmit,
+    cep,
+}: IPropSearch): JSX.Element {
+    const handleSubmit = useCallback(
+        (e: React.SyntheticEvent): void => {
+            e.preventDefault()
+            onSubmit()
+        },
+        [onSubmit]
+    )
     return (
         <div>
             <p className={styles.txtSearch}>Consultar</p>
-            <form
-                onSubmit={(e: React.SyntheticEvent) => {
-                    e.preventDefault()
-                    const target = e.target as typeof e.target & {
-                        cep: { value: string }
-                    }
-                    const cep = target.cep.value
-
-                    console.log(cep)
-                }}
-            >
+            <form onSubmit={handleSubmit}>
                 <div>
-                    <label htmlFor="cep">
-                        CEP
-                        <input
-                            className={styles.inputCep}
-                            id="cep"
-                            type="text"
-                            name="cep"
-                        />
-                    </label>
+                    CEP
+                    <InputMask
+                        className={styles.inputCep}
+                        id="cep"
+                        type="text"
+                        name="cep"
+                        autoComplete="text"
+                        onChange={(e) => onChangeCep(e.target.value)}
+                        value={cep}
+                        mask="99999-999"
+                        required
+                    />
                     <input
                         className={styles.btn}
                         type="submit"
